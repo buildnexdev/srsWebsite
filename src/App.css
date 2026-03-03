@@ -77,7 +77,7 @@
   height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(0, 61, 41, 0.6), rgba(0, 61, 41, 0.4)), url('/hero-bg.png') center/cover no-repeat;
+  background: linear-gradient(rgba(0, 61, 41, 0.6), rgba(0, 61, 41, 0.4)), url('./assets/hero-bg.png') center/cover no-repeat;
   padding-top: 80px;
   /* Offset for fixed navbar */
   color: var(--text-light);

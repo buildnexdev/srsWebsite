@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import srsLogo from './assets/logo.jpg'
+import mariaImg from './assets/maria.png'
+import umaImg from './assets/uma.png'
 import './App.css'
 
 function App() {
@@ -22,7 +25,7 @@ function App() {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-content">
           <div className="logo-wrapper">
-            <img src="/logo.jpg" alt="SRS Logo" className="navbar-logo" />
+            <img src={srsLogo} alt="SRS Logo" className="navbar-logo" />
             <div className="logo-text">SRS <span>Smart Research Solution</span></div>
           </div>
           <ul className="nav-links">
@@ -65,7 +68,7 @@ function App() {
             {/* Maria */}
             <div className="team-card glass-card animate-fade-in">
               <div className="team-image-wrapper">
-                <img src="/maria.png" alt="Maria Jacquilin Mary" className="team-img" />
+                <img src={mariaImg} alt="Maria Jacquilin Mary" className="team-img" />
               </div>
               <div className="team-info-content">
                 <h3>Maria Jacquilin Mary</h3>
@@ -84,7 +87,7 @@ function App() {
             {/* Uma */}
             <div className="team-card glass-card animate-fade-in" style={{ animationDelay: '0.2s' }}>
               <div className="team-image-wrapper">
-                <img src="/uma.png" alt="Mrs. Uma" className="team-img" />
+                <img src={umaImg} alt="Mrs. Uma" className="team-img" />
               </div>
               <div className="team-info-content">
                 <h3>Mrs. Uma</h3>
