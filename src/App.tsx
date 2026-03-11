@@ -55,7 +55,7 @@ function App() {
   const [teamsDropdownOpen, setTeamsDropdownOpen] = useState(false)
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
   const [aboutInView, setAboutInView] = useState<[boolean, boolean]>([false, false])
-  const teamsRef = useRef<HTMLDivElement>(null)
+  const teamsRef = useRef<HTMLLIElement>(null)
   const aboutSectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
