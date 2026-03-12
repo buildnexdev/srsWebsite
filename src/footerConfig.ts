@@ -8,8 +8,8 @@ export const FOOTER_CONFIG = {
   formspreeFormId: 'YOUR_FORM_ID',
 
   address: {
-    line1: 'Your address line 1',
-    line2: 'Your city, state – PIN',
+    line1: '15, Angamuthu salai, Periyar Nagar',
+    line2: 'Aalwarthirunagar, Chennai - 600087',
   },
 
   phone: ['+918825530267'],
@@ -21,10 +21,10 @@ export const FOOTER_CONFIG = {
 
   workingHours: 'Mon – Fri: 9:00 AM – 6:00 PM',
 
-  /** Google Maps embed URL (iframe src) or null to hide map. Get from Google Maps → Share → Embed map */
-  mapEmbedUrl: null as string | null,
+  /** Google Maps embed URL (iframe src) for Contact section map view */
+  mapEmbedUrl: 'https://www.google.com/maps?q=15+Angamuthu+salai+Periyar+Nagar+Aalwarthirunagar+Chennai+600087&output=embed',
   /** "Open in Maps" link (Google Maps URL) */
-  mapsLink: 'https://www.google.com/maps',
+  mapsLink: 'https://www.google.com/maps/search/?api=1&query=15+Angamuthu+salai+Periyar+Nagar+Aalwarthirunagar+Chennai+600087',
 
   socialLinks: [
     { name: 'Facebook', url: 'https://facebook.com/', icon: 'facebook' },

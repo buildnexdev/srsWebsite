@@ -3,24 +3,14 @@ import { teamMembers, type TeamMember } from './teamMembers.tsx'
 import { FOOTER_CONFIG } from './footerConfig'
 import './App.css'
 
-function SRSLogo({ className, size = 40 }: { className?: string; size?: number }) {
-  return (
-    <svg
-      className={className}
-      width={size}
-      height={size}
-      viewBox="0 0 120 120"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <rect width="120" height="120" rx="20" fill="currentColor" fillOpacity="0.12" />
-      <text x="60" y="52" textAnchor="middle" fill="currentColor" fontSize="36" fontWeight="700" fontFamily="'Playfair Display', serif">SRS</text>
-      <path d="M32 78 L52 62 L72 72 L88 58" stroke="#d4af37" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <circle cx="88" cy="58" r="4" fill="#d4af37" />
-    </svg>
-  )
-}
+/* Key Projects & Highlights – 5 areas from team profile */
+const KEY_PROJECTS = [
+  { title: '1. Survey Planning and Technical Implementation', desc: 'Technical aspects of survey design and execution; field methodologies tailored to project requirements; adherence to research protocols and quality standards; supervising field data collection and troubleshooting operational challenges.' },
+  { title: '2. Large-Scale Survey Management', desc: 'Numerous large-scale national and regional studies over the past 20 years; coordinated multi-location survey operations ensuring timelines and quality benchmarks; high standards of data accuracy, validation, and reporting.' },
+  { title: '3. Regional Monitoring &amp; Team Coordination', desc: 'Monitoring and supervising field activities at regional level in Tamil Nadu and Kerala; leading field teams, supervisors, and investigators; regular field visits for compliance; reviewing progress reports and implementing corrective measures.' },
+  { title: '4. Training &amp; Capacity Building', desc: 'Training of Trainers (TOT) programs; Core Trainer for field investigators and supervisory staff; workshops on survey methodology, ethical practices, and field management; ongoing mentoring and performance feedback.' },
+  { title: '5. Travel &amp; Project Coordination', desc: 'Extensive travel across India for project coordination, field supervision, staff training, and workshops; successfully managed diverse geographical assignments with cultural sensitivity and adaptability.' },
+]
 
 function SocialIcon({ name }: { name: string }) {
   const props = { width: 20, height: 20, fill: 'currentColor', 'aria-hidden': true }
@@ -99,7 +89,7 @@ function App() {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="container nav-content">
           <div className="logo-wrapper">
-            <SRSLogo className="navbar-logo" size={44} />
+            <img src="/logo.jpg" alt="SRS" className="navbar-logo" width={44} height={44} />
             <div className="logo-text">SRS <span>Smart Research Solution</span></div>
           </div>
           <ul className="nav-links">
@@ -148,7 +138,7 @@ function App() {
       <section id="hero" className="hero-section">
         <div className="container hero-content animate-fade-in">
           <h1 className="hero-title">Driving Excellence Through <span>Evidence-Based</span> Research</h1>
-          <p className="hero-subtitle">Multidisciplinary expertise in public health, infectious disease surveillance, and large-scale field implementation.</p>
+          <p className="hero-subtitle">Transforming data into powerful insights that drive smarter decisions and meaningful impact.</p>
           <div className="hero-btns">
             <a href="#about" className="btn btn-primary">Learn More</a>
             <a href="#contact" className="btn btn-secondary">Get in Touch</a>
@@ -156,25 +146,52 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section – Who We Are, Mission, Vision, Values, Why Choose */}
       <section id="about" className="section about-section about-section-particles">
         <div className="about-particles" aria-hidden="true" />
-        <div className="container" ref={aboutSectionRef}>
-          <div
-            className={`about-block about-block-animate ${aboutInView[0] ? 'about-block-visible' : ''}`}
-          >
-            <h2 className="section-title">Our Mission</h2>
-            <p className="about-text">
-              <strong>T</strong>o provide <strong>high-quality research solutions</strong> that transform raw data into <strong>meaningful insight</strong>, enabling our clients to achieve <strong>measurable impact</strong> and satisfaction.
-            </p>
+        <div className="container about-container-inner" ref={aboutSectionRef}>
+          <div className="about-content">
+          <div className={`about-mission-who-row about-block-animate ${aboutInView[0] ? 'about-block-visible' : ''}`}>
+            <div className="about-block about-block-left">
+              <h2 className="section-title">Our Mission</h2>
+              <p className="about-text">
+                <strong>T</strong>o provide <strong>high-quality research solutions</strong> that transform raw data into <strong>meaningful insight</strong>, enabling our clients to achieve <strong>measurable impact</strong> and satisfaction.
+              </p>
+            </div>
+            <div className="about-divider" aria-hidden="true" role="presentation">
+              <span className="about-divider-line" />
+            </div>
+            <div className="about-block about-block-right">
+              <h2 className="section-title">Who We Are</h2>
+              <p className="about-text">
+                Smart Research Solution – The power of research is a professional research company dedicated to delivering accurate, reliable, and actionable insights. With expertise in field data collection, data analysis, and report writing, we help organizations, businesses, and government agencies make informed and strategic decisions on time.
+              </p>
+            </div>
           </div>
-          <div
-            className={`about-block about-block-animate ${aboutInView[1] ? 'about-block-visible' : ''}`}
-          >
+          <div className={`about-block about-block-animate ${aboutInView[0] ? 'about-block-visible' : ''}`}>
             <h2 className="section-title">Our Vision</h2>
             <p className="about-text">
               <strong>T</strong>o gain recognition as a <strong>premier research partner</strong>, esteemed for its <strong>professionalism, precision, and innovative approach</strong> in every project, along with field observations.
             </p>
+          </div>
+          <div className={`about-block about-block-animate ${aboutInView[0] ? 'about-block-visible' : ''}`}>
+            <h2 className="section-title">Our Values</h2>
+            <ul className="about-values-list">
+              <li><strong>Accuracy:</strong> We maintain the highest standards of data quality.</li>
+              <li><strong>Integrity:</strong> Transparent, ethical research practices.</li>
+              <li><strong>Innovation:</strong> Using advanced tools and methods to deliver insightful results.</li>
+              <li><strong>Reliability:</strong> Timely, professional, and actionable outputs.</li>
+            </ul>
+          </div>
+          <div className={`about-block about-block-animate ${aboutInView[0] ? 'about-block-visible' : ''}`}>
+            <h2 className="section-title">Why Choose Smart Research Solution?</h2>
+            <ul className="about-why-list">
+              <li>Experienced research professionals</li>
+              <li>Robust data collection and quality control methods</li>
+              <li>Clear, actionable reporting</li>
+              <li>Customized solutions to meet client needs</li>
+            </ul>
+          </div>
           </div>
         </div>
       </section>
@@ -192,79 +209,92 @@ function App() {
                 style={{ animationDelay: `${index * 0.1}s` }}
                 onClick={() => setSelectedMember(member)}
               >
-                <div className="team-info-content">
+              <div className="team-info-content">
                   <h3>{member.name}</h3>
                   <p className="role">{member.profession}</p>
                   <p className="description">{member.shortDescription}</p>
                   {member.expertise.length > 0 && (
-                    <ul className="expertise-list">
+                <ul className="expertise-list">
                       {member.expertise.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
-                    </ul>
+                </ul>
                   )}
-                </div>
+              </div>
               </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Expertise & Experience */}
+      {/* Services */}
       <section id="services" className="section services-section">
         <div className="container">
-          <h2 className="section-title">Our Expertise</h2>
+          <h2 className="section-title">Services</h2>
           <div className="services-grid">
             <div className="service-item glass-card">
-              <h4>Public Health & Epidemiology</h4>
-              <p>Strengthening surveillance systems for SARI, ILI, and AFI. Specialized in field surveillance evaluation across 12 districts of Tamil Nadu.</p>
+              <h4>1. Data Collection</h4>
+              <p>We specialize in systematic field data collection for research, surveys, and monitoring. Our team uses structured questionnaires, interviews, and observations to ensure accurate and representative data.</p>
+              <p className="service-key-features">Key Features:</p>
               <ul className="mini-list">
-                <li>Outbreak Investigations</li>
-                <li>Infectious Disease Research</li>
-                <li>Contact Tracing Analysis</li>
+                <li>Field surveys and interviews</li>
+                <li>Observational studies</li>
+                <li>Large-scale and small-scale data collection</li>
+                <li>Quality control measures for accuracy</li>
               </ul>
             </div>
             <div className="service-item glass-card">
-              <h4>Socio-Economic Surveys</h4>
-              <p>Large-scale survey supervision (NCAER) including Women's Empowerment and Youth engaging "Orange Economic" studies.</p>
+              <h4>2. Data Analysis</h4>
+              <p>Transform raw data into actionable insights with our advanced analytical techniques. We use statistical, thematic, and trend analysis to help clients make data-driven decisions.</p>
+              <p className="service-key-features">Key Features:</p>
               <ul className="mini-list">
-                <li>Field Team Management</li>
-                <li>Quality Control & Validation</li>
-                <li>Logistics Coordination</li>
+                <li>Quantitative and qualitative analysis</li>
+                <li>Trend and pattern identification</li>
+                <li>Data visualization and reporting</li>
+                <li>Customized analytical solutions</li>
               </ul>
             </div>
             <div className="service-item glass-card">
-              <h4>Program Management</h4>
-              <p>Technical and project management for international health initiatives, including USA-based AMR programs.</p>
+              <h4>3. Report Writing</h4>
+              <p>We provide professional, comprehensive reports that clearly present findings, insights, and recommendations. Our reports are tailored to your audience, ensuring clarity and impact.</p>
+              <p className="service-key-features">Key Features:</p>
               <ul className="mini-list">
-                <li>Stakeholder Coordination</li>
-                <li>Protocol Development</li>
-                <li>M&E Frameworks</li>
+                <li>Structured and concise reporting</li>
+                <li>Graphs, charts, and visualizations</li>
+                <li>Executive summaries and recommendations</li>
+                <li>Reports suitable for stakeholders, management, or publication</li>
               </ul>
             </div>
           </div>
+          <div className="service-addons">
+            <h3 className="service-addons-title">Optional Add-On Services</h3>
+            <ul className="about-why-list">
+              <li>Policy brief preparation</li>
+              <li>Monitoring and evaluation support</li>
+              <li>Research consultancy and advisory</li>
+            </ul>
+          </div>
+          <p className="services-tagline">Join with us to turn data into insight and insight into impact.</p>
         </div>
       </section>
 
-      {/* Experience Highlights */}
+      {/* Experience Highlights – projects from team profile (e.g. Elango) */}
       <section className="section highlights-section">
         <div className="container">
           <h2 className="section-title">Key Projects & Highlights</h2>
-          <div className="highlights-container">
-            <div className="highlight-row">
-              <div className="highlight-content">
-                <h5>ICMR COVID-19 Response</h5>
-                <p>Contributed to field evaluation studies across 12 districts, focusing on case identification and laboratory referral systems.</p>
+          <p className="highlights-intro">Core areas of expertise: survey planning, large-scale management, regional monitoring, training, and project coordination.</p>
+          <div className="highlights-grid">
+            {KEY_PROJECTS.map((project, i) => (
+              <div
+                key={i}
+                className="highlight-card"
+                style={{ animationDelay: `${0.06 * i}s` }}
+              >
+                <span className="highlight-card-num">{i + 1}</span>
+                <h5 dangerouslySetInnerHTML={{ __html: project.title }} />
+                <p>{project.desc}</p>
               </div>
-              <div className="highlight-content">
-                <h5>Vellore Outbreak Investigation</h5>
-                <p>Detailed documentation and situation assessment of the COVID-19 outbreak in the Paiyur refugee camp.</p>
-              </div>
-              <div className="highlight-content">
-                <h5>TNHPS Survey Coordination</h5>
-                <p>Leadership in the Tamil Nadu Household Panel Systems Project across various districts.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -386,7 +416,7 @@ function App() {
           <div className="footer-top">
             <div className="footer-brand-block">
               <div className="footer-brand-head">
-                <SRSLogo className="footer-logo-img" size={48} />
+                <img src="/logo.jpg" alt="SRS" className="footer-logo-img" width={48} height={48} />
                 <h3 className="footer-logo-inline">SRS <span className="footer-logo-accent">Smart Research Solution</span></h3>
               </div>
               <span className="footer-logo-underline" aria-hidden="true" />
@@ -452,17 +482,15 @@ function App() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp */}
+      {/* Floating Email */}
       <a
-        href={`https://wa.me/${FOOTER_CONFIG.whatsappNumber}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-float"
-        aria-label="Chat on WhatsApp"
-        title="Chat on WhatsApp"
+        href={`mailto:${FOOTER_CONFIG.email}`}
+        className="email-float"
+        aria-label="Email us"
+        title="Email us"
       >
         <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </svg>
       </a>
     </div>
