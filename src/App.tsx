@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { teamMembers, type TeamMember } from './teamMembers.tsx'
 import { FOOTER_CONFIG } from './footerConfig'
+import SurveyPhotos from './SurveyPhotos'
 import './App.css'
 
 /* Key Projects & Highlights – 5 areas from team profile */
@@ -129,6 +130,7 @@ function App() {
               </div>
             </li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#survey-photos">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
@@ -325,6 +327,9 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* Survey Photos Section */}
+      <SurveyPhotos />
 
       {/* Contact Us – above footer */}
       <section id="contact" className="section contact-section">
