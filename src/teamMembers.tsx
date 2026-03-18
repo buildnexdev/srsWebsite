@@ -16,7 +16,7 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     id: 'soban-prabhu',
-    name: 'Mrs. Soban Prabhu',
+    name: 'Mr. Soban Prabhu',
     profession: 'Proprietor',
     shortDescription: 'Founded Smart Research Solution in 2017. Nearly 18 years in the research sector—from Field Investigator to State-Level Coordinator. Focus on data accuracy, quality control, and client satisfaction.',
     expertise: ['Field Research', 'Team Leadership', 'Quality Control', 'Client Relations'],
@@ -45,7 +45,7 @@ export const teamMembers: TeamMember[] = [
     id: 'elango',
     name: 'Mr. Elango',
     profession: 'Senior Consultant',
-    shortDescription: 'Over 20 years in Market Research, Customized Research, and Social Research. Senior Executive – DA (Social) at Nielsen India Ltd. Expert in survey planning, field implementation, and regional monitoring across Tamil Nadu and Kerala.',
+    shortDescription: 'Over 30 years in Market Research, Customized Research, and Social Research. Senior Executive – DA (Social) at Nielsen India Ltd. Expert in survey planning, field implementation, and regional monitoring across Tamil Nadu and Kerala.',
     expertise: ['Survey Design & Field Implementation', 'Large-Scale Project Execution', 'Regional Monitoring & QA', 'Training of Trainers (TOT)'],
     fullProfile: (
       <>
@@ -75,7 +75,7 @@ export const teamMembers: TeamMember[] = [
               <div className="profile-experience-cell" role="cell">Nielsen (India) Private Limited, Coimbatore. Sr. Field Executive</div>
               <div className="profile-experience-cell" role="cell">India</div>
               <div className="profile-experience-cell profile-experience-summary" role="cell">
-                R Elango is working as a Sr DA Executive and has experience of over 25 years in issues related to social research. He has experience in <strong>rural development, livelihood, rehabilitation, health, water sanitation Program, and communication</strong> etc. He has developed specialized skills in conducting In-depth Discussions, Focus Group Discussions. He has good experience of organizing &amp; imparting pieces of training on various social issues in the states of Tamil Nadu and Kerala. Also, he has an experience of co-ordinating social surveys on a large scale, field-level data quality checks, monitoring the progress of fieldwork completion, also coordinating with data entry centres. He has a holistic understanding of the social sector research, having field co-ordinating <strong>multiple sectors — including rural development and poverty alleviation, livelihoods, education, maternal and child health and nutrition, governance, water and sanitation</strong>, etc.
+                R Elango is working as a Sr DA Executive and has experience of over 30 years in issues related to social research. He has experience in <strong>rural development, livelihood, rehabilitation, health, water sanitation Program, and communication</strong> etc. He has developed specialized skills in conducting In-depth Discussions, Focus Group Discussions. He has good experience of organizing &amp; imparting pieces of training on various social issues in the states of Tamil Nadu and Kerala. Also, he has an experience of co-ordinating social surveys on a large scale, field-level data quality checks, monitoring the progress of fieldwork completion, also coordinating with data entry centres. He has a holistic understanding of the social sector research, having field co-ordinating <strong>multiple sectors — including rural development and poverty alleviation, livelihoods, education, maternal and child health and nutrition, governance, water and sanitation</strong>, etc.
               </div>
             </div>
             <div className="profile-experience-row" role="row">
