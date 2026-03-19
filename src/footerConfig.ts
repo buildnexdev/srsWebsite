@@ -5,7 +5,7 @@
  */
 export const FOOTER_CONFIG = {
   /** Replace with your Formspree form ID (from https://formspree.io/ → Your form → form action) */
-  formspreeFormId: 'YOUR_FORM_ID',
+  formspreeFormId: 'xvzwlwdy',
 
   address: {
     line1: '15, Angamuthu salai, Periyar Nagar',

@@ -46,6 +46,9 @@ function App() {
   const [teamsDropdownOpen, setTeamsDropdownOpen] = useState(false)
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null)
   const [aboutInView, setAboutInView] = useState<[boolean, boolean]>([false, false])
+  const [contactSubmitting, setContactSubmitting] = useState(false)
+  const [contactSuccess, setContactSuccess] = useState(false)
+  const [contactError, setContactError] = useState('')
   const teamsRef = useRef<HTMLLIElement>(null)
   const aboutSectionRef = useRef<HTMLDivElement>(null)
 
@@ -84,6 +87,37 @@ function App() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [teamsDropdownOpen])
 
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setContactSuccess(false)
+    setContactError('')
+    setContactSubmitting(true)
+
+    try {
+      const form = e.currentTarget
+      const formData = new FormData(form)
+      const response = await fetch(`https://formspree.io/f/${FOOTER_CONFIG.formspreeFormId}`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to submit')
+      }
+
+      form.reset()
+      setContactSuccess(true)
+      window.setTimeout(() => setContactSuccess(false), 4000)
+    } catch {
+      setContactError('Could not send your message. Please try again.')
+    } finally {
+      setContactSubmitting(false)
+    }
+  }
+
   return (
     <div className="app">
       {/* Navigation */}
@@ -91,7 +125,9 @@ function App() {
         <div className="container nav-content">
           <div className="logo-wrapper">
             <img src="/logo.jpg" alt="SRS" className="navbar-logo" width={44} height={44} />
-            <div className="logo-text">SRS <span>Smart Research Solution</span></div>
+            <div className="logo-text">
+              SRS <span>Smart Research Solution</span>
+            </div>
           </div>
           <ul className="nav-links">
             <li><a href="#hero">Home</a></li>
@@ -341,17 +377,27 @@ function App() {
               <h3 className="contact-form-title">Get a Free Quote</h3>
               <form
                 className="contact-form"
-                action={`https://formspree.io/f/${FOOTER_CONFIG.formspreeFormId}`}
-                method="post"
+                onSubmit={handleContactSubmit}
               >
                 <div className="contact-form-row">
-                  <input type="text" name="first_name" placeholder="First Name" required aria-label="First name" />
-                  <input type="text" name="last_name" placeholder="Last Name" required aria-label="Last name" />
+                  <input type="text" name="name" placeholder="Full Name" required aria-label="Full name" />
                 </div>
                 <input type="email" name="email" placeholder="Email Address" required aria-label="Email" />
                 <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone number" />
                 <textarea name="message" rows={4} placeholder="Project Details" required aria-label="Project details" />
-                <button type="submit" className="btn contact-form-submit">Submit</button>
+                <button type="submit" className="btn contact-form-submit" disabled={contactSubmitting}>
+                  {contactSubmitting ? 'Submitting...' : 'Submit'}
+                </button>
+                {contactSuccess && (
+                  <p role="status" aria-live="polite" className="contact-form-success">
+                    Thank you! Your message has been sent successfully.
+                  </p>
+                )}
+                {contactError && (
+                  <p role="alert" className="contact-form-error">
+                    {contactError}
+                  </p>
+                )}
               </form>
             </div>
             <div className="contact-card-details">
@@ -422,11 +468,14 @@ function App() {
             <div className="footer-brand-block">
               <div className="footer-brand-head">
                 <img src="/logo.jpg" alt="SRS" className="footer-logo-img" width={48} height={48} />
-                <h3 className="footer-logo-inline">SRS <span className="footer-logo-accent">Smart Research Solution</span></h3>
+                <h3 className="footer-logo-inline">
+                  SRS <span className="footer-logo-accent">Smart Research Solution</span>
+                  <small className="footer-gst-text">GST: 33CRKPS7432M1Z6</small>
+                </h3>
               </div>
               <span className="footer-logo-underline" aria-hidden="true" />
               <p className="footer-tagline">The power of research. Transforming data into insight for measurable impact.</p>
-              <div className="footer-social">
+              {/* <div className="footer-social">
                 {FOOTER_CONFIG.socialLinks.map((social) => (
                   <a
                     key={social.name}
@@ -440,7 +489,7 @@ function App() {
                     <SocialIcon name={social.icon} />
                   </a>
                 ))}
-              </div>
+              </div> */}
             </div>
             <div className="footer-touch-block">
               <h4 className="footer-touch-title">GET IN TOUCH</h4>
@@ -471,6 +520,11 @@ function App() {
             </div>
           </div>
           <div className="footer-bottom">
+            <div className="footer-legal-sparkles" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
             <div className="footer-legal">
               <a href="#terms">Terms &amp; Conditions</a>
               <span className="footer-legal-sep">·</span>
@@ -486,6 +540,20 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Floating WhatsApp */}
+      <a
+        href={`https://wa.me/${FOOTER_CONFIG.whatsappNumber}`}
+        className="whatsapp-float"
+        aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+          <path d="M20.52 3.48A11.82 11.82 0 0 0 12.06 0C5.55 0 .25 5.3.25 11.81c0 2.08.54 4.11 1.57 5.9L0 24l6.47-1.69a11.76 11.76 0 0 0 5.59 1.42h.01c6.51 0 11.81-5.3 11.81-11.81 0-3.15-1.23-6.1-3.36-8.44ZM12.07 21.7h-.01a9.79 9.79 0 0 1-4.99-1.36l-.36-.21-3.84 1 1.03-3.74-.23-.38a9.8 9.8 0 0 1-1.5-5.2C2.17 6.4 6.58 2 12.06 2c2.61 0 5.05 1.01 6.89 2.85a9.7 9.7 0 0 1 2.86 6.95c0 5.48-4.41 9.9-9.74 9.9Zm5.44-7.42c-.3-.15-1.78-.88-2.06-.97-.27-.1-.47-.15-.67.15-.2.3-.76.97-.93 1.17-.17.2-.34.22-.64.08-.3-.15-1.24-.46-2.37-1.47-.87-.78-1.46-1.75-1.63-2.05-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.53.08-.8.38-.27.3-1.03 1.01-1.03 2.46 0 1.45 1.06 2.85 1.2 3.05.15.2 2.08 3.17 5.04 4.44.7.3 1.25.48 1.68.62.7.22 1.34.19 1.84.12.56-.08 1.78-.73 2.03-1.44.25-.7.25-1.3.17-1.44-.08-.14-.27-.22-.57-.37Z" />
+        </svg>
+      </a>
 
       {/* Floating Email */}
       <a
