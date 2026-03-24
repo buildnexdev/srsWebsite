@@ -238,7 +238,8 @@ export const teamMembers: TeamMember[] = [
           Our State Co-Coordinator began her career as a Data Entry Operator in the Statistical Department at Tiruchirappalli. During her tenure, the Government launched the Tamil Nadu Household Panel Systems Project (TNHPS) survey in the district, where she conducted her very first field survey, marking the beginning of her journey in large-scale field operations.
         </p>
         <p>
-          She later underwent specialized training at Emory University, USA, which equipped her with advanced skills to handle complex and large-scale surveys with expertise and precision. Her outstanding performance and unwavering dedication earned high appreciation from the client, leading to her promotion as District Field Coordinator.
+          {/* She later underwent specialized training at Emory University, USA, which equipped her with advanced skills to handle complex and large-scale surveys with expertise and precision. Her outstanding performance and unwavering dedication earned high appreciation from the client, leading to her promotion as District Field Coordinator. */}
+          She subsequently participated in specialized training offered by Emory University in the USA, which provided her with advanced skills necessary for expertly managing complex and large-scale surveys with precision.
         </p>
         <p>
           Over the years, she has trained numerous candidates at various levels and has actively contributed to multiple collaborative projects with clients. The quality, accuracy, and consistency of her work have consistently distinguished her as a dependable leader in the field.
