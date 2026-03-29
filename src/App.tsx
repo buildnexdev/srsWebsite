@@ -49,7 +49,7 @@ function App() {
   const aboutSectionRef = useRef<HTMLDivElement>(null)
 
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
-  const API_URL = 'http://localhost:3000'
+  const API_URL = 'https://bulidnex.xyz'
   const COMPANY_ID = 3
 
   useEffect(() => {
@@ -132,33 +132,33 @@ function App() {
       'Special Skills',
       'Language Proficiency'
     ];
-    
+
     // Split by any of the predefined section headers
     const pattern = new RegExp(`\\n(?=${sectionHeads.join('|')})`, 'i');
     const parts = bio.split(pattern);
 
     const parseExperienceTable = (text: string) => {
       const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-      
+
       const headerTerms = [
         'Period',
         'Employing organization',
         'Country',
         'Summary of activities'
       ];
-      
+
       // Remove lines that are just headers
       const dataLines = lines.filter(l => !headerTerms.some(h => l.includes(h)));
       const rows = [];
-      
+
       // Each row has 4 columns: Period, Org/Title, Country, Summary
       for (let i = 0; i < dataLines.length; i += 4) {
         if (dataLines[i]) {
           rows.push({
             period: dataLines[i] || '',
-            org: dataLines[i+1] || '',
-            country: dataLines[i+2] || '',
-            summary: dataLines[i+3] || ''
+            org: dataLines[i + 1] || '',
+            country: dataLines[i + 2] || '',
+            summary: dataLines[i + 3] || ''
           });
         }
       }
@@ -194,9 +194,9 @@ function App() {
     const parseResponsibilities = (text: string) => {
       const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
       const sections: { num: string, title: string, items: string[] }[] = [];
-      
+
       let currentSection: { num: string, title: string, items: string[] } | null = null;
-      
+
       lines.forEach(line => {
         // Check if line is just a number
         if (/^\d+$/.test(line)) {
@@ -210,9 +210,9 @@ function App() {
           currentSection.items.push(line);
         }
       });
-      
+
       if (currentSection) sections.push(currentSection);
-      
+
       if (sections.length === 0) return <p className="bio-text" style={{ whiteSpace: 'pre-line' }}>{text}</p>;
 
       return (
@@ -237,30 +237,30 @@ function App() {
     return parts.map((part, idx) => {
       const trimmed = part.trim();
       if (!trimmed) return null;
-      
+
       const lines = trimmed.split('\n');
       const firstLine = lines[0].trim();
-      
+
       // Determine if the firstLine matches one of our headers
       const isHeader = sectionHeads.some(h => firstLine.toLowerCase() === h.toLowerCase());
-      
+
       if (isHeader) {
         const content = lines.slice(1).join('\n').trim();
         const lowHead = firstLine.toLowerCase();
-        
+
         return (
           <div key={idx} className="bio-section">
             <h4 className="bio-section-title">{firstLine}</h4>
             <div className="bio-content">
-              {lowHead === 'professional experience' ? parseExperienceTable(content) : 
+              {lowHead === 'professional experience' ? parseExperienceTable(content) :
                 lowHead === 'key responsibilities and contributions' ? parseResponsibilities(content) : (
-                <div className="bio-text" style={{ whiteSpace: 'pre-line' }}>{content}</div>
-              )}
+                  <div className="bio-text" style={{ whiteSpace: 'pre-line' }}>{content}</div>
+                )}
             </div>
           </div>
         );
       }
-      
+
       return (
         <div key={idx} className="bio-section">
           {idx === 0 && !isHeader ? <h4 className="bio-section-title">Biography</h4> : null}
@@ -284,21 +284,21 @@ function App() {
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
             <li className="nav-item-teams" ref={teamsRef}>
-              <div 
-                className="teams-dropdown-wrapper" 
+              <div
+                className="teams-dropdown-wrapper"
                 onMouseEnter={() => setTeamsDropdownOpen(true)}
                 onMouseLeave={() => setTeamsDropdownOpen(false)}
               >
-                <button 
-                  className="nav-teams-trigger" 
+                <button
+                  className="nav-teams-trigger"
                   onClick={() => setTeamsDropdownOpen(!teamsDropdownOpen)}
                 >
                   Teams <span className="nav-chevron">▼</span>
                 </button>
                 <div className={`teams-dropdown ${teamsDropdownOpen ? 'open' : ''}`}>
                   {teamMembers.map(member => (
-                    <button 
-                      key={member.id} 
+                    <button
+                      key={member.id}
                       className="teams-dropdown-item"
                       onClick={() => { setSelectedMember(member); setTeamsDropdownOpen(false); }}
                     >
@@ -351,8 +351,8 @@ function App() {
           <h2 className="section-title">Leadership Team</h2>
           <div className="team-grid team-grid-four">
             {teamMembers.map((member, i) => (
-              <button 
-                key={member.id} 
+              <button
+                key={member.id}
                 className="team-card-premium animate-fade-in"
                 style={{ animationDelay: `${i * 0.1}s` }}
                 onClick={() => setSelectedMember(member)}
