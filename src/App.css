@@ -255,6 +255,30 @@
   margin-top: 0;
 }
 
+.team-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.team-member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-member-img {
+  transform: scale(1.05);
+}
+
+.team-phone {
+  margin-top: 0.5rem;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
 .team-modal-body p {
   margin: 0 0 0.75rem;
   line-height: 1.6;
@@ -1898,5 +1922,399 @@
 
   .nav-links {
     display: none;
+  }
+}
+
+/* Premium Leadership Team Styles */
+.team-grid-four {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.team-card-premium {
+  background: white;
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.team-card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 61, 41, 0.08);
+  border-color: rgba(0, 61, 41, 0.1);
+}
+
+.team-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #003d29;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.team-card-role {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #c7a13c;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.team-card-bio-teaser {
+  font-size: 0.95rem;
+  color: #555c5a;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.team-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.team-tag-pill {
+  background: #f0f7f4;
+  color: #1e5a45;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid rgba(30, 90, 69, 0.08);
+}
+
+/* Member Modal Detail View */
+.member-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 31, 21, 0.4);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.member-modal-container {
+  background: white;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 90vh;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: modalSlideUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.member-modal-header {
+  background: #003d29;
+  padding: 2.5rem 3rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.member-modal-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.22rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: white;
+}
+
+.member-modal-designation {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #c7a13c;
+  margin: 0;
+}
+
+.member-modal-close {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.member-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.member-modal-body {
+  padding: 3.5rem;
+  overflow-y: auto;
+  background: #fff;
+  flex-grow: 1;
+}
+
+.bio-section {
+  margin-bottom: 3.5rem;
+}
+
+.bio-section:last-child {
+  margin-bottom: 0;
+}
+
+.bio-section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #003d29;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.bio-section-title::after {
+  content: '';
+  flex-grow: 1;
+  height: 1.5px;
+  background: linear-gradient(to right, rgba(0, 61, 41, 0.15), transparent);
+  margin-left: 2rem;
+}
+
+.bio-text {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #4a5553;
+  margin-bottom: 1.5rem;
+}
+
+.member-modal-tags-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.member-modal-tags-list li {
+  background: #f8faf9;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  font-size: 0.98rem;
+  color: #1e5a45;
+  font-weight: 600;
+  border: 1.5px solid #ebf2f0;
+  display: flex;
+  align-items: center;
+}
+
+.member-modal-tags-list li::before {
+  content: '✓';
+  margin-right: 0.8rem;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .member-modal-header {
+    padding: 2rem;
+  }
+  .member-modal-body {
+    padding: 2.5rem 2rem;
+  }
+  .member-modal-name {
+    font-size: 1.75rem;
+  }
+  .member-modal-tags-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Bio Experience Table */
+.bio-experience-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ebedea;
+}
+
+.bio-experience-thead {
+  background: #003d29;
+  color: white;
+}
+
+.bio-experience-thead th {
+  padding: 1.2rem 1rem;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bio-experience-thead th:last-child {
+  border-right: none;
+}
+
+.bio-experience-tbody tr {
+  border-bottom: 1px solid #ebedea;
+  background: #fff;
+  transition: background 0.2s;
+}
+
+.bio-experience-tbody tr:last-child {
+  border-bottom: none;
+}
+
+.bio-experience-tbody tr:hover {
+  background: #f9fbfb;
+}
+
+.bio-experience-tbody td {
+  padding: 1.5rem 1.2rem;
+  font-size: 0.92rem;
+  color: #4a5553;
+  line-height: 1.7;
+  vertical-align: top;
+  border-right: 1px solid #ebedea;
+}
+
+.bio-experience-tbody td:last-child {
+  border-right: none;
+}
+
+.bio-experience-period {
+  width: 140px;
+  font-weight: 700;
+  color: #1e5a45;
+}
+
+.bio-experience-org {
+  width: 280px;
+}
+
+.bio-experience-country {
+  width: 100px;
+  text-align: center;
+}
+
+.bio-experience-summary {
+  min-width: 300px;
+}
+
+@media (max-width: 900px) {
+  .bio-experience-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+
+/* Bio Responsibilities UI */
+.bio-responsibilities-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bio-responsibilities-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  background: #f9fbfb;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ebf2f0;
+}
+
+.bio-responsibilities-num {
+  background: rgba(0, 61, 41, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #003d29;
+  border-right: 2px solid rgba(0, 61, 41, 0.08);
+}
+
+.bio-responsibilities-content {
+  padding: 1.5rem 2rem;
+}
+
+.bio-responsibilities-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #003d29;
+  margin-bottom: 1rem;
+}
+
+.bio-responsibilities-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.bio-responsibilities-list li {
+  font-size: 0.95rem;
+  color: #4a5553;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .bio-responsibilities-row {
+    grid-template-columns: 1fr;
+  }
+  .bio-responsibilities-num {
+    border-right: none;
+    border-bottom: 2px solid rgba(0, 61, 41, 0.08);
+    padding: 0.8rem;
   }
 }
