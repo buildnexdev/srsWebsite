@@ -49,7 +49,7 @@ function App() {
   const aboutSectionRef = useRef<HTMLDivElement>(null)
 
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([])
-  const API_URL = 'https://bulidnex.xyz'
+  const API_URL = 'https://api.buildnexdev.in'
   const COMPANY_ID = 3
 
   useEffect(() => {
@@ -443,10 +443,117 @@ function App() {
         </div>
       </section>
 
-      <footer className="footer-buildnex bg-primary">
-        <div className="container">
-          <div className="footer-bottom">
-            <p>&copy; 2026 Smart Research Solution. All rights reserved.</p>
+      <footer className="site-footer">
+        <div className="container footer-grid">
+          <div className="footer-col brand-col">
+            <div className="footer-logo-wrapper">
+              <img src="/logo.jpg" alt="SRS" className="footer-logo" width={48} height={48} />
+              <div className="footer-logo-text">
+                SRS <span>Smart Research Solution</span>
+              </div>
+            </div>
+            <p className="footer-desc">
+              Driving excellence through evidence-based research. Transforming data into powerful insights that drive smarter decisions and meaningful impact.
+            </p>
+            <div className="footer-socials">
+              {FOOTER_CONFIG.socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  className="footer-social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.name}
+                >
+                  <SocialIcon name={link.icon.toLowerCase()} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="footer-col links-col">
+            <h3>Quick Links</h3>
+            <ul className="footer-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#survey-photos">Gallery</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div className="footer-col contact-col">
+            <h3>Contact Us</h3>
+            <ul className="footer-contact-details">
+              <li>
+                <span className="contact-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" /></svg>
+                </span>
+                <span className="contact-text">
+                  {FOOTER_CONFIG.address.line1},<br />
+                  {FOOTER_CONFIG.address.line2}
+                </span>
+              </li>
+              <li>
+                <span className="contact-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" /></svg>
+                </span>
+                <span className="contact-text">
+                  <a href={`tel:${FOOTER_CONFIG.phone[0]}`}>{FOOTER_CONFIG.phone[0]}</a>
+                </span>
+              </li>
+              <li>
+                <span className="contact-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                </span>
+                <span className="contact-text font-small">
+                  <a href={`mailto:${FOOTER_CONFIG.email}`}>{FOOTER_CONFIG.email}</a>
+                </span>
+              </li>
+              <li>
+                <span className="contact-icon">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" /></svg>
+                </span>
+                <span className="contact-text">{FOOTER_CONFIG.workingHours}</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="footer-col action-col">
+            <h3>Get Support</h3>
+            <p className="action-desc">Have a research query or need a quick quotation? Connect with us directly on WhatsApp.</p>
+            <a
+              href={`https://wa.me/${FOOTER_CONFIG.whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp"
+            >
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style={{ marginRight: '8px', verticalAlign: 'middle' }}>
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.863-9.864.001-2.637-1.03-5.116-2.905-6.993-1.876-1.879-4.36-2.915-7.002-2.916-5.445 0-9.87 4.417-9.873 9.861-.001 1.761.464 3.48 1.347 5.011l-.995 3.636 3.738-.981zm11.387-5.464c-.301-.15-1.78-.879-2.056-.979-.275-.1-.475-.15-.675.15-.1.3-.775 1.009-.95 1.21-.175.2-.35.224-.651.075-3.007-1.502-5.053-2.61-7.08-6.125-.175-.3-.175-.488-.025-.638.136-.135.301-.351.451-.527.15-.176.201-.3.301-.5.1-.2.05-.375-.025-.526-.075-.15-.675-1.625-.925-2.225-.244-.588-.493-.508-.675-.517-.175-.008-.375-.01-.575-.01-.2 0-.525.075-.8 1.01-.275.939-.85 2.114-1.075 2.564-.225.45-.45.727-.125 1.05 1.782 1.768 4.263 3.619 7.72 4.414.775.178 1.55.275 2.312.272.781-.003 1.55-.078 2.213-.178.737-.11 1.78-.727 2.03-1.429.25-.7.25-1.3.175-1.428-.075-.125-.275-.2-.575-.35z" />
+              </svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <div className="container footer-bottom-inner">
+            <p>&copy; {new Date().getFullYear()} Smart Research Solution. All rights reserved.</p>
+            <div className="footer-bottom-links text-primary">
+              <p className="flex items-center gap-2 text-white-300 text-sm ">
+                Designed with{" "}
+                by{" "}
+                <a
+                  href="https://buildnexdev.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-white hover:from-cyan-300 hover:to-blue-400 transition-all duration-300"
+                >
+                  BuildNexDev
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </footer>

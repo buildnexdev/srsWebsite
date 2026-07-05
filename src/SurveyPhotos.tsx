@@ -21,7 +21,7 @@ export default function SurveyPhotos() {
     const fetchPhotos = async () => {
       try {
         // Using the user's provided API URL
-        const apiUrl = 'https://bulidnex.xyz/srs-images/all';
+        const apiUrl = 'https://api.buildnexdev.in/srs-images/all';
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error('Failed to fetch survey photos');
